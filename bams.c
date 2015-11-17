@@ -1,12 +1,13 @@
+/**
+ * @source : https://wilke.de/uploads/media/REAL_TO_BAM_Conversion_03.tig
+ */
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 
-double bam_bit_table[ 16 ] =
-  {
-    0.0055, 0.0109, 0.0219, 0.0439, 0.088, 0.1757, 0.3515, 0.703, 1.406, 2.8125, 5.625, 11.25, 22.5, 45.0, 90.0, 180.0
-  };
-
+/* bam bit table */
+double bam_bit_table[ 16 ] = { 0.0055, 0.0109, 0.0219, 0.0439, 0.088, 0.1757, 0.3515, 0.703, 1.406, 2.8125, 5.625, 11.25, 22.5, 45.0, 90.0, 180.0 };
 
 void print2base( int num, int count ) {
   if( 0 == num ) {
@@ -36,9 +37,7 @@ unsigned short realToUBAM( const double _num ) {
       res += pow( 2, i );
     }
   }
-
   return res;
-  
 }
 
 signed realToBAM( const double _num ) {
@@ -55,9 +54,7 @@ signed realToBAM( const double _num ) {
       res += pow( 2, i );
     }
   }
-
-  return res;
-  
+  return res; 
 }
 
 int main( int argc, char **argv ) {
