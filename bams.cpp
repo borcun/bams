@@ -21,11 +21,11 @@
  */
 float bscal_decode(unsigned int num, const int max, const int min, const int bc, const int sc) {
   const unsigned int pbc = pow(2, bc - 1);
-  float res = 1.0f;
+  float sign = 1.0f;
 
   // check whether num is pos. or neg.
   if (num >= pbc) {
-    res = -1.0f;
+    sign = -1.0f;
   }
 
   /* 
@@ -36,9 +36,7 @@ float bscal_decode(unsigned int num, const int max, const int min, const int bc,
     num -= pbc;
   }
   
-  res *= (float) (num / sc) * ((float) (abs(min) + abs(max)) / (2 * pbc));
-
-  return res;  
+  return sign * (float) (num / sc) * ((float) (abs(min) + abs(max)) / (2 * pbc));
 }
 
 
